@@ -3,6 +3,17 @@ import Home from "./pages/home";
 import BusinessPage from "./pages/BusinessPage";
 import About from "./pages/About";
 import "./App.css";
+import AddBusiness from "./AddBusiness";
+
+function App() {
+  return (
+    <div>
+      <Home />
+      <hr />
+      <AddBusiness />
+    </div>
+  );
+}
 
 function App() {
   return (
