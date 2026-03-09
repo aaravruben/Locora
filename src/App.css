@@ -1,3 +1,20 @@
+/* FULL PAGE LAYOUT */
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* MAIN APP WRAPPER */
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 /* GLOBAL */
 
 body {
@@ -56,11 +73,13 @@ body {
 /* MAIN CONTAINER */
 
 .container {
-  max-width: 1000px;
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
   margin: auto;
   padding: 40px 20px;
-  text-align: center;
 }
+
 
 /* PAGE TITLE */
 
