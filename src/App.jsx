@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Home from "./pages/home";
 import Business from "./pages/BusinessPage";
-import Submit from "./pages/Submit";
+import AddBusiness from "./pages/AddBusiness";
 
 import "./App.css";
 
