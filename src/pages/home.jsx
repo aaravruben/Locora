@@ -26,8 +26,6 @@ function Home() {
           <Link key={biz.id} to={`/business/${biz.id}`}>
             <div className="card">
 
-              <img src={biz.image} className="biz-img" />
-
               <h3>{biz.name}</h3>
 
               <p>{biz.category}</p>
