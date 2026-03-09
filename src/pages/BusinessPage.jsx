@@ -1,26 +1,48 @@
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { businesses } from "../data/businesses";
 
+function Home() {
+  const [search, setSearch] = useState("");
 
-const businesses = [
-  { id: 1, name: "Golden Gate Coffee", description: "Popular cafe in SF." },
-  { id: 2, name: "Bay Tech Repair", description: "Fix phones and laptops." },
-  { id: 3, name: "Silicon Sushi", description: "Modern sushi restaurant." },
-];
-
-function BusinessPage() {
-  const { id } = useParams();
-  const business = businesses.find((b) => b.id === Number(id));
-
-  if (!business) return <h2>Business not found</h2>;
+  const filtered = businesses.filter((biz) =>
+    biz.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="container">
-      <h1>{business.name}</h1>
-      <p>{business.description}</p>
+
+      <h1>Bay Area Business Hub</h1>
+
+      <input
+        className="search"
+        placeholder="Search businesses..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <div className="business-grid">
+        {filtered.map((biz) => (
+          <Link key={biz.id} to={`/business/${biz.id}`}>
+            <div className="card">
+
+              <img src={biz.image} className="biz-img" />
+
+              <h3>{biz.name}</h3>
+
+              <p>{biz.category}</p>
+
+              <span>{biz.city}</span>
+
+              <p className="rating">⭐ {biz.rating}</p>
+
+            </div>
+          </Link>
+        ))}
+      </div>
+
     </div>
   );
 }
-<Link className="button" to="/">← Back to businesses</Link>
 
-export default BusinessPage;
+export default Home;
