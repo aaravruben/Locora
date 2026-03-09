@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./pages/home";
-import Business from "./pages/Business";
+import Business from "./pages/BusinessPage";
 import Submit from "./pages/Submit";
 
 import "./App.css";
