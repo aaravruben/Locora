@@ -1,48 +1,69 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { businesses } from "../data/businesses";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { supabase } from "../supabaseClient";
 
-function Home() {
-  const [search, setSearch] = useState("");
+function BusinessPage() {
+  const { id } = useParams();
 
-  const filtered = businesses.filter((biz) =>
-    biz.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const [business, setBusiness] = useState(null);
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    fetchBusiness();
+  }, []);
+
+  async function fetchBusiness() {
+    const { data, error } = await supabase
+      .from("businesses")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (!error) {
+      setBusiness(data);
+      setDescription(data.description || "");
+    }
+  }
+
+  async function saveDescription() {
+    const { error } = await supabase
+      .from("businesses")
+      .update({ description: description })
+      .eq("id", id);
+
+    if (error) {
+      alert("Error saving description");
+    } else {
+      alert("Description saved!");
+    }
+  }
+
+  if (!business) return <p>Loading...</p>;
 
   return (
-    <div className="container">
+    <div>
+      <h1>{business.name}</h1>
 
-      <h1>Bay Area Business Hub</h1>
+      <p>Category: {business.category}</p>
+      <p>City: {business.city}</p>
+      <p>Rating: {business.rating}</p>
 
-      <input
-        className="search"
-        placeholder="Search businesses..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+      <h2>Description</h2>
+
+      <textarea
+        rows="6"
+        cols="50"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       />
 
-      <div className="business-grid">
-        {filtered.map((biz) => (
-          <Link key={biz.id} to={`/business/${biz.id}`}>
-            <div className="card">
+      <br />
 
-              <img src={biz.image} className="biz-img" />
-
-              <h3>{biz.name}</h3>
-
-              <p>{biz.category}</p>
-
-              <span>{biz.city}</span>
-
-              <p className="rating">⭐ {biz.rating}</p>
-
-            </div>
-          </Link>
-        ))}
-      </div>
-
+      <button onClick={saveDescription}>
+        Save Description
+      </button>
     </div>
   );
 }
 
-export default Home;
+export default BusinessPage;
