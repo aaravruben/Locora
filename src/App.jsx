@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Home from "./pages/home";
 import BusinessPage from "./pages/BusinessPage";
-import Submit from "./pages/Submit";
+import AddBusiness from "./pages/AddBusiness";
 
 import "./App.css";
 
@@ -17,8 +17,10 @@ function App() {
         {/* NAVBAR */}
         <nav className="nav">
           <div>
-            <Link to="/">BizWorld</Link>
-            <Link to="/submit">Submit Business</Link>
+            <Link to="/">Home</Link>
+            <Link to="/AddBusiness">Submit Business</Link>
+            <Link to="/about">About</Link>
+            <Link to="/about">About</Link>
           </div>
 
           <button
