@@ -20,7 +20,6 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/AddBusiness">Submit Business</Link>
             <Link to="/about">About</Link>
-            <Link to="/about">About</Link>
           </div>
 
           <button
@@ -36,7 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/business/:id" element={<BusinessPage />} />
-            <Route path="/submit" element={<Submit />} />
+            <Route path="/AddBusiness" element={<AddBusiness />} />
           </Routes>
         </div>
 
