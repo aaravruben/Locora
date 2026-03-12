@@ -33,7 +33,7 @@ function App() {
 
           <div className="nav-links">
             <Link to="/">Explore</Link>
-            <Link to="/submit">Submit</Link>
+            <Link to="pages/submit">Submit</Link>
           </div>
 
           <button
@@ -50,7 +50,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/business/:id" element={<BusinessPage />} />
-            <Route path="/submit" element={<Submit />} />
+            <Route path="/pages/submit" element={<Submit />} />
           </Routes>
         </div>
 
