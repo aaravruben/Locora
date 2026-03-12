@@ -1,46 +1,56 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Home from "./pages/home";
 import BusinessPage from "./pages/BusinessPage";
-import AddBusiness from "./pages/AddBusiness";
+import Submit from "./pages/Submit";
 
 import "./App.css";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+
+  // Load saved mode from localStorage
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved === "false" ? false : true;
+  });
+
+  // Save mode whenever it changes
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
 
   return (
     <Router>
       <div className={`app ${darkMode ? "dark" : "light"}`}>
 
         {/* NAVBAR */}
-    
-     <nav className="nav">
+        <nav className="nav">
+
           <div className="logo">
-          <Link to="/">BizWorld</Link>
-           </div>
+            <Link to="/">BizWorld</Link>
+          </div>
 
-        <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/AddBusiness">Submit Business</Link>
-            <Link to="/about">About</Link>
-       </div>
+          <div className="nav-links">
+            <Link to="/">Explore</Link>
+            <Link to="/submit">Submit</Link>
+          </div>
 
-  <button
-    className="button"
-    onClick={() => setDarkMode(!darkMode)}
-  >
-    {darkMode ? "Light" : "Dark"}
-  </button>
-</nav>
+          <button
+            className="button"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? "Light Mode" : "Dark Mode"}
+          </button>
 
-        {/* MAIN CONTENT */}
+        </nav>
+
+        {/* PAGE CONTENT */}
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/business/:id" element={<BusinessPage />} />
-            <Route path="/AddBusiness" element={<AddBusiness />} />
+            <Route path="/submit" element={<Submit />} />
           </Routes>
         </div>
 
