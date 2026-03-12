@@ -4,21 +4,27 @@
   box-sizing: border-box;
 }
 
-body {
+html, body, #root {
+  height: 100%;
   margin: 0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 /* APP LAYOUT */
 
-html, body, #root {
-  height: 100%;
-}
-
 .app {
-  min-height: 100vh;
+  min-height: 100vh; /* makes it fill the entire screen */
   display: flex;
   flex-direction: column;
+}
+
+/* MAIN CONTENT */
+
+.container {
+  flex: 1; /* fills remaining space */
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 /* LIGHT MODE */
