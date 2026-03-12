@@ -9,52 +9,50 @@ import "./App.css";
 
 function App() {
 
-  // Load saved mode from localStorage
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("darkMode");
     return saved === "false" ? false : true;
   });
 
-  // Save mode whenever it changes
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
+
+    if (darkMode) {
+      document.body.className = "dark";
+    } else {
+      document.body.className = "light";
+    }
   }, [darkMode]);
 
   return (
     <Router>
-      <div className={`app ${darkMode ? "dark" : "light"}`}>
 
-        {/* NAVBAR */}
-        <nav className="nav">
+      <nav className="nav">
 
-          <div className="logo">
-            <Link to="/">BizWorld</Link>
-          </div>
+        <div className="nav-left">
+          <Link to="/" className="logo">BizWorld</Link>
 
-          <div className="nav-links">
-            <Link to="/">Explore</Link>
-            <Link to="/submit">Submit</Link>
-          </div>
-
-          <button
-            className="button"
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            {darkMode ? "Light Mode" : "Dark Mode"}
-          </button>
-
-        </nav>
-
-        {/* PAGE CONTENT */}
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/business/:id" element={<BusinessPage />} />
-            <Route path="/submit" element={<Submit />} />
-          </Routes>
+          <Link to="/">Explore</Link>
+          <Link to="/submit">Submit</Link>
         </div>
 
+        <button
+          className="button"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "Light Mode" : "Dark Mode"}
+        </button>
+
+      </nav>
+
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/business/:id" element={<BusinessPage />} />
+          <Route path="/submit" element={<Submit />} />
+        </Routes>
       </div>
+
     </Router>
   );
 }

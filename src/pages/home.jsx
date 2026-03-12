@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../supabase";
 
 function Home() {
+
   const [businesses, setBusinesses] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -11,18 +12,21 @@ function Home() {
   }, []);
 
   async function fetchBusinesses() {
-    const { data } = await supabase.from("businesses").select("*");
+    const { data } = await supabase
+      .from("businesses")
+      .select("*")
+      .order("rating", { ascending: false });
+
     setBusinesses(data || []);
   }
 
-  const filtered = businesses.filter((b) =>
-    b.name.toLowerCase().includes(search.toLowerCase())
+  const filtered = businesses.filter((biz) =>
+    biz.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div>
 
-      {/* HERO SECTION */}
       <div className="hero">
         <h1>Bay Area Business Hub</h1>
 
@@ -34,10 +38,15 @@ function Home() {
         />
       </div>
 
-      {/* BUSINESS GRID */}
       <div className="business-grid">
+
         {filtered.map((biz) => (
-          <Link to={`/business/${biz.id}`} key={biz.id} className="card">
+
+          <Link
+            key={biz.id}
+            to={`/business/${biz.id}`}
+            className="card"
+          >
 
             <h3>{biz.name}</h3>
 
@@ -45,12 +54,14 @@ function Home() {
 
             <span>{biz.city}</span>
 
-            {biz.rating && (
-              <div className="rating">⭐ {biz.rating}</div>
-            )}
+            <div className="rating">
+              ⭐ {biz.rating}
+            </div>
 
           </Link>
+
         ))}
+
       </div>
 
     </div>
