@@ -31,7 +31,7 @@ function App() {
 
 <div className="blob blob1"></div>
 <div className="blob blob2"></div>
-<div className="blob blob3"></div>as
+<div className="blob blob3"></div>
       <nav className="nav">
 
   <div className="nav-left">
