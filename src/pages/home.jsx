@@ -47,18 +47,21 @@ function Home() {
       <div className="business-grid">
         {filtered.map((biz) => (
           <Link
-            key={biz.id}
-            to={`/business/${biz.id}`}
-            className="card"
-          >
-            <h3>{biz.name}</h3>
+  key={biz.id}
+  to={`/business/${biz.id}`}
+  className="card"
+>
 
-            <p>{biz.category}</p>
+  <div className="card-header">
+    <h3>{biz.name}</h3>
+    <span className="rating">⭐ {biz.rating}</span>
+  </div>
 
-            <span>{biz.city}</span>
+  <p className="category">{biz.category}</p>
 
-            <div className="rating">⭐ {biz.rating}</div>
-          </Link>
+  <span className="city">{biz.city}</span>
+
+</Link>
         ))}
       </div>
     </div>

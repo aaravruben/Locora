@@ -265,3 +265,50 @@ h1 {
   margin-top: 10px;
   font-size: 14px;
 }
+/* HERO */
+
+.hero{
+margin-bottom:50px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero-sub{
+color:#aaa;
+margin-bottom:25px;
+}
+
+/* LOADING */
+
+.loading{
+margin:30px 0;
+color:#aaa;
+}
+
+/* CARD IMPROVEMENTS */
+
+.card-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.category{
+color:#bbb;
+margin:8px 0;
+}
+
+.city{
+font-size:14px;
+color:#888;
+}
+
+/* BETTER CARD HOVER */
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
