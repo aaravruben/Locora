@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../supabase";
 
 function Submit() {
   const [name, setName] = useState("");
