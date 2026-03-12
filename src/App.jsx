@@ -35,7 +35,7 @@ function App() {
     <Link to="/">Explore</Link>
     <Link to="/submit">Submit</Link>
   </div>
-
+<div className="background-particles"></div>
   <button
     className="button"
     onClick={() => setDarkMode(!darkMode)}
