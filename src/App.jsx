@@ -30,8 +30,7 @@ function App() {
       <nav className="nav">
 
         <div className="nav-left">
-          <Link to="/" className="logo">BizWorld</Link>
-
+          <Link to="/" className="logo">Home</Link>
           <Link to="/">Explore</Link>
           <Link to="/submit">Submit</Link>
         </div>

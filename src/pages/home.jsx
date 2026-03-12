@@ -5,19 +5,23 @@ import { supabase } from "../supabase";
 function Home() {
   const [businesses, setBusinesses] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchBusinesses();
   }, []);
 
   async function fetchBusinesses() {
-    const { data } = await supabase
-      .from("businesses")
-      .select("*")
-      .order("rating", { ascending: false });
+  setLoading(true);
 
-    setBusinesses(data || []);
-  }
+  const { data } = await supabase
+    .from("businesses")
+    .select("*")
+    .order("rating", { ascending: false });
+
+  setBusinesses(data || []);
+  setLoading(false);
+}
 
   const filtered = businesses.filter((biz) =>
     biz?.name?.toLowerCase().includes(search.toLowerCase())
@@ -25,17 +29,21 @@ function Home() {
 
   return (
     <div>
-      <div className="hero">
-        <h1>Bay Area Business Hub</h1>
+     <div className="hero">
+  <h1>Discover Local Businesses</h1>
 
-        <input
-          className="search"
-          placeholder="Search businesses..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+  <p className="hero-sub">
+    Explore cafes, tech stores, and hidden gems in your area.
+  </p>
 
+  <input
+    className="search"
+    placeholder="Search businesses..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
+</div>
+  {loading && <p className="loading">Loading businesses...</p>}
       <div className="business-grid">
         {filtered.map((biz) => (
           <Link
