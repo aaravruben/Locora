@@ -8,6 +8,7 @@ import Submit from "./pages/Submit";
 import "./App.css";
 
 function App() {
+  
 
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("darkMode");
@@ -26,7 +27,11 @@ function App() {
 
   return (
     <Router>
+<div className="grid-background"></div>
 
+<div className="blob blob1"></div>
+<div className="blob blob2"></div>
+<div className="blob blob3"></div>as
       <nav className="nav">
 
   <div className="nav-left">
