@@ -1,4 +1,4 @@
-/* PAGE RESET */
+radialGradient/* PAGE RESET */
 
 * {
   box-sizing: border-box;
@@ -6,10 +6,10 @@
 
 html, body, #root {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   margin: 0;
-  padding: 0;
 }
+
 
 /* FULL PAGE BACKGROUND */
 
@@ -179,4 +179,46 @@ h1 {
   background: #222;
   border: 1px solid #444;
   color: white;
+}
+/* HERO */
+
+.hero {
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 25px;
+}
+
+/* SEARCH */
+
+.search {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  font-size: 16px;
+}
+
+/* CARDS */
+
+.card {
+  display: block;
+  padding: 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* RATING */
+
+.rating {
+  margin-top: 10px;
+  font-size: 14px;
 }
