@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../supabase";
+import { supabase } from "../supabaseClient";
 
 function Home() {
   const [businesses, setBusinesses] = useState([]);
