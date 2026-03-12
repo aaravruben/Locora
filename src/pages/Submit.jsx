@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
 
-function AddBusiness() {
+function Submit() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [address, setAddress] = useState("");
@@ -100,4 +100,4 @@ function AddBusiness() {
   );
 }
 
-export default AddBusiness;
+export default Submit;
