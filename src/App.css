@@ -1,37 +1,38 @@
-/* FULL PAGE LAYOUT */
+/* RESET */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+/* APP LAYOUT */
 
 html, body, #root {
   height: 100%;
-  width: 100%;
 }
-
-/* MAIN APP WRAPPER */
 
 .app {
   min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-
-/* GLOBAL */
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* APP MODES */
+/* LIGHT MODE */
 
 .light {
-  background: #f5f7fb;
+  background: #f5f5f5;
   color: #111;
 }
 
+/* DARK MODE (GRAY) */
+
 .dark {
-  background: #0f172a;
-  color: white;
+  background: #181818;
+  color: #e5e5e5;
 }
 
 /* NAVBAR */
@@ -41,36 +42,25 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  border-bottom: 1px solid #1e293b;
-}
-
-.light .nav {
-  background: white;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 .dark .nav {
-  background: #020617;
+  border-bottom: 1px solid #333;
 }
 
-.nav a {
-  text-decoration: none;
-  font-weight: bold;
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nav-links a {
   margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.dark .nav a {
-  color: #38bdf8;
-}
-
-.light .nav a {
-  color: #2563eb;
-}
-
-.nav a:hover {
-  color: white;
-}
-
-/* MAIN CONTAINER */
+/* PAGE CONTAINER */
 
 .container {
   flex: 1;
@@ -80,12 +70,11 @@ body {
   padding: 40px 20px;
 }
 
-
-/* PAGE TITLE */
+/* TITLES */
 
 h1 {
-  font-size: 36px;
-  margin-bottom: 30px;
+  font-size: 34px;
+  margin-bottom: 20px;
 }
 
 /* SEARCH BAR */
@@ -94,18 +83,22 @@ h1 {
   width: 100%;
   max-width: 500px;
   padding: 12px;
-  margin: 0 auto 30px auto;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  display: block;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.dark .search {
+  background: #222;
+  border: 1px solid #444;
+  color: white;
 }
 
 /* GRID */
 
 .business-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 24px;
 }
 
@@ -113,76 +106,54 @@ h1 {
 
 .card {
   padding: 22px;
-  border-radius: 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e5e5;
+  background: white;
   transition: 0.2s;
-  cursor: pointer;
 }
 
 .dark .card {
-  background: #1e293b;
-}
-
-.light .card {
-  background: white;
-  border: 1px solid #ddd;
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-.card p {
-  color: #94a3b8;
-}
-
-.card span {
-  color: #38bdf8;
-  font-size: 14px;
+  background: #222;
+  border: 1px solid #333;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
+}
+
+/* CARD TEXT */
+
+.card p {
+  opacity: 0.7;
+}
+
+.card span {
+  font-size: 14px;
+  opacity: 0.6;
 }
 
 /* BUTTONS */
 
 .button {
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
   display: inline-block;
-  margin-top: 15px;
+  padding: 9px 16px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-}
-
-.dark .button {
-  background: #38bdf8;
-  color: #020617;
-}
-
-.dark .button:hover {
-  background: #0ea5e9;
-}
-
-.light .button {
+  font-weight: 500;
+  margin-top: 12px;
   background: #2563eb;
   color: white;
 }
 
-.light .button:hover {
-  background: #1d4ed8;
+.button:hover {
+  opacity: 0.9;
 }
 
-/* BANNER */
+/* DARK BUTTON */
 
-.biz-banner {
-  width: 100%;
-  max-height: 280px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 25px;
+.dark .button {
+  background: #3b82f6;
 }
 
 /* FORMS */
@@ -190,33 +161,20 @@ h1 {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   max-width: 420px;
-  margin: auto;
 }
 
 .form input,
 .form textarea {
   padding: 12px;
   border-radius: 8px;
-  border: none;
-  font-size: 14px;
+  border: 1px solid #ddd;
 }
 
 .dark .form input,
 .dark .form textarea {
-  background: #1e293b;
+  background: #222;
+  border: 1px solid #444;
   color: white;
-}
-
-.light .form input,
-.light .form textarea {
-  background: white;
-  border: 1px solid #ccc;
-}
-
-/* LINKS */
-
-a {
-  text-decoration: none;
 }

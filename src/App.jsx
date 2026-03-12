@@ -15,20 +15,25 @@ function App() {
       <div className={`app ${darkMode ? "dark" : "light"}`}>
 
         {/* NAVBAR */}
-        <nav className="nav">
-          <div>
+    
+     <nav className="nav">
+          <div className="logo">
+          <Link to="/">BizWorld</Link>
+           </div>
+
+        <div className="nav-links">
             <Link to="/">Home</Link>
             <Link to="/AddBusiness">Submit Business</Link>
             <Link to="/about">About</Link>
-          </div>
+       </div>
 
-          <button
-            className="button"
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            {darkMode ? "Light Mode" : "Dark Mode"}
-          </button>
-        </nav>
+  <button
+    className="button"
+    onClick={() => setDarkMode(!darkMode)}
+  >
+    {darkMode ? "Light" : "Dark"}
+  </button>
+</nav>
 
         {/* MAIN CONTENT */}
         <div className="container">
