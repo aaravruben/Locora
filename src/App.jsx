@@ -29,20 +29,21 @@ function App() {
 
       <nav className="nav">
 
-        <div className="nav-left">
-          <Link to="/" className="logo">Home</Link>
-          <Link to="/">Explore</Link>
-          <Link to="/submit">Submit</Link>
-        </div>
+  <div className="nav-left">
+    <Link to="/" className="logo">BizWorld</Link>
 
-        <button
-          className="button"
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          {darkMode ? "Light Mode" : "Dark Mode"}
-        </button>
+    <Link to="/">Explore</Link>
+    <Link to="/submit">Submit</Link>
+  </div>
 
-      </nav>
+  <button
+    className="button"
+    onClick={() => setDarkMode(!darkMode)}
+  >
+    Toggle Theme
+  </button>
+
+</nav>
 
       <div className="container">
         <Routes>

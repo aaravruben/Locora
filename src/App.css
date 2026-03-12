@@ -40,12 +40,18 @@ body.light {
 
 /* NAVBAR */
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 40px;
-  border-bottom: 1px solid #d4d4d4;
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+border-bottom:1px solid #333;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+margin-right:20px;
 }
 
 .dark .nav {
@@ -65,14 +71,11 @@ body.light {
 
 /* PAGE CONTAINER */
 
-.container {
-  flex: 1;
-  max-width: 1100px;
-  width: 100%;
-  margin: auto;
-  padding: 40px 20px;
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:40px 24px;
 }
-
 /* TITLES */
 
 h1 {
@@ -101,30 +104,26 @@ h1 {
 
 /* BUSINESS GRID */
 
-.business-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
+.business-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:28px;
 }
 
-/* BUSINESS CARD */
-
-.card {
-  display: block;
-  background: #2a2a2a;
-  padding: 22px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid #3a3a3a;
-  transition: all 0.2s ease;
+.card{
+background:#2a2a2a;
+padding:26px;
+border-radius:16px;
+border:1px solid #3a3a3a;
+transition:all .2s ease;
+text-decoration:none;
+color:inherit;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #5a5a5a;
-  background: #303030;
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(0,0,0,.4);
+border-color:#4a4a4a;
 }
 
 .card h3 {
@@ -311,4 +310,21 @@ color:#888;
 .card:hover{
 transform:translateY(-6px);
 box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.skeleton{
+height:120px;
+border-radius:12px;
+background:linear-gradient(
+90deg,
+#2a2a2a 25%,
+#333 37%,
+#2a2a2a 63%
+);
+background-size:400% 100%;
+animation:skeleton 1.4s ease infinite;
+}
+
+@keyframes skeleton{
+0%{background-position:100% 50%}
+100%{background-position:0 50%}
 }

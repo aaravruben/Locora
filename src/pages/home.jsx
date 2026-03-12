@@ -43,7 +43,13 @@ function Home() {
     onChange={(e) => setSearch(e.target.value)}
   />
 </div>
-  {loading && <p className="loading">Loading businesses...</p>}
+  {loading && (
+<div className="business-grid">
+  <div className="skeleton"></div>
+  <div className="skeleton"></div>
+  <div className="skeleton"></div>
+</div>
+)}
       <div className="business-grid">
         {filtered.map((biz) => (
           <Link
