@@ -135,6 +135,7 @@ font-weight:500;
 max-width:1200px;
 margin:auto;
 padding:40px 24px;
+background:transparent;
 }
 
 /* ------------------ HERO ------------------ */
@@ -167,6 +168,10 @@ font-size:16px;
 .dark .search{
 background:#222;
 color:white;
+}
+.light .search{
+background:white;
+color:#222;
 }
 
 /* ------------------ GRID ------------------ */
