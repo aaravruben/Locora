@@ -110,13 +110,22 @@ animation-delay:6s;
 /* ------------------ NAVBAR ------------------ */
 
 .nav{
+position:sticky;
+top:0;
+z-index:100;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 40px;
-border-bottom:1px solid #333;
-}
 
+padding:18px 40px;
+
+background:rgba(20,20,20,0.45);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
 .logo{
 font-size:20px;
 font-weight:700;
