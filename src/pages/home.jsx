@@ -73,5 +73,16 @@ function Home() {
     </div>
   );
 }
+function handleMove(e){
+const card = e.currentTarget
+const rect = card.getBoundingClientRect()
 
+card.style.setProperty("--x", `${e.clientX - rect.left}px`)
+card.style.setProperty("--y", `${e.clientY - rect.top}px`)
+}
+<div
+className="card"
+onMouseMove={handleMove}
+></div>
 export default Home;
+
