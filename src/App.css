@@ -84,21 +84,15 @@ animation:float 18s ease-in-out infinite;
 
 .blob1{
 background:#38bdf8;
-top:10%;
-left:10%;
 }
 
 .blob2{
 background:#6366f1;
-top:50%;
-left:70%;
 animation-delay:3s;
 }
 
 .blob3{
 background:#22c55e;
-top:80%;
-left:30%;
 animation-delay:6s;
 }
 
@@ -126,13 +120,14 @@ font-weight:700;
 .nav-links a{
 margin-right:20px;
 text-decoration:none;
-font-weight:500;
+font: weight 500px;
+padding: 8px 12px;
 }
 
 /* ------------------ PAGE ------------------ */
 
 .container{
-max-width:1200px;
+max-width:100%;
 margin:auto;
 padding:40px 24px;
 background:transparent;
@@ -172,6 +167,14 @@ color:white;
 .light .search{
 background:white;
 color:#222;
+}
+
+/* ------------------ GRID ------------------ */
+
+.business-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+gap:24px;
 }
 
 /* ------------------ CARDS ------------------ */
