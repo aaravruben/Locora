@@ -90,14 +90,14 @@ left:10%;
 .blob2{
 background:#6366f1;
 left:70%;
-padding-top: 200px;
+top: 200px;
 animation-delay:3s;
 }
 
 .blob3{
 background:#22c55e;
 left:30%;
-padding-top: 100px;
+top: 100px;
 animation-delay:6s;
 }
 
